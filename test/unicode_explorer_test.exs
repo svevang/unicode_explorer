@@ -3,7 +3,7 @@ defmodule UnicodeExplorerTest do
   doctest UnicodeExplorer
   import ExUnit.CaptureIO
 
-  describe "print/3" do
+  describe "print/1" do
     test "prints and list of binaries" do
       words = ["another", "test", "fine", "watermelon", "josé"]
       fun = fn() -> UnicodeExplorer.print(Enum.sort(words)) end
