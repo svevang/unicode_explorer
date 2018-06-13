@@ -1,21 +1,24 @@
 defmodule UnicodeExplorer.Bytes do
 
   @moduledoc """
-  Tools for manipulating byte matrix representations in Elixir.
+  Create a 2D square **byte** matrix representation padded with nils.
   """
 
   @doc """
-  Given a list of binaries, create a 2D matrix of bytes padded with nils
-  represented as a nested list.
-  iex(1)> s = ["aa", "bbb", "cccc", "ddd", "ee", "f"]
-  ["aa", "bbb", "cccc", "ddd", "ee", "f"]
-  iex(2)> UnicodeExplorer.Bytes.byte_matrix(s)
-  [
-      'abcdef',
-      [97, 98, 99, 100, 101, nil],
-      [nil, 98, 99, 100, nil, nil],
-      [nil, nil, 99, nil, nil, nil]
-  ]
+  Given a list of binaries, create a 2D matrix of bytes padded with nils.
+  The matrix is represented as a column-major nested list.
+
+      iex> s = ["aa", "bbb", "cccc", "ddd", "ee", "f"]
+      ["aa", "bbb", "cccc", "ddd", "ee", "f"]
+
+      iex> UnicodeExplorer.Bytes.byte_matrix(s)
+      [
+          'abcdef',
+          [97, 98, 99, 100, 101, nil],
+          [nil, 98, 99, 100, nil, nil],
+          [nil, nil, 99, nil, nil, nil]
+      ]
+
   """
   def byte_matrix(key_list, acc \\ []) do
     {bytes, remaning_keys} = Enum.unzip(key_list

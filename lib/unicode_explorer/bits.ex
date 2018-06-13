@@ -1,6 +1,6 @@
 defmodule UnicodeExplorer.Bits do
   @moduledoc """
-  A collection of utils for dealing with bits.
+  Create a 3D square **bit** matrix representation padded with nils.
   """
 
   @doc """
@@ -32,8 +32,8 @@ defmodule UnicodeExplorer.Bits do
   end
 
   @doc """
-  Given a list of binaries, create a 3D matrix of bytes padded with nils
-  represented as a nested list.
+  Given a list of binaries, create a 3D matrix of bytes padded with nils.
+  The matrix is represented as a column-major nested list.
   """
   def bit_matrix(key_list) do
     key_list

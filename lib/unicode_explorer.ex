@@ -1,10 +1,45 @@
 defmodule UnicodeExplorer do
   @moduledoc """
-  Documentation for UnicodeExplorer.
+  UnicodeExplorer is a tool for exploring strings and binaries in Elixir.
   """
 
   @doc """
   Print out the binary representation of a unicode string. Takes in a list of strings and prints out a matrix of binaries.
+
+      iex(1)> UnicodeExplorer.print(["az", "bé"])
+
+      ---------- ---------- 
+      az         bé         
+      ---------- ---------- 
+       0       a  0       b 
+       1          1         
+       1          1         
+       0          0         
+       0          0         
+       0          0         
+       0          1         
+       1          0         
+      ---------- ---------- 
+       0       z  1       é 
+       1          1         
+       1          0         
+       1          0         
+       1          0         
+       0          0         
+       1          1         
+       0          1         
+      ---------- ---------- 
+                  1         
+                  0         
+                  1         
+                  0         
+                  1         
+                  0         
+                  0         
+                  1         
+      :ok
+      iex(2)> 
+
   """
   def print(key_list) do
     key_list
@@ -31,8 +66,7 @@ defmodule UnicodeExplorer do
     end)
   end
 
-
-  @doc "Util for printing out a **byte** row header."
+  # Util for printing out a **byte** row header
   defp print_byte_row_header(key_list, byte_row_index) when byte_row_index == 0 do
     IO.write "\n"
     key_list |> Enum.each(fn(k)->
@@ -51,7 +85,7 @@ defmodule UnicodeExplorer do
 
   defp print_byte_row_header(key_list, byte_row_index), do: :noop
 
-  @doc "Print out a **bit** row header, a dashed line to separate bytes as they are printed."
+  # Print out a **bit** row header, a dashed line to separate bytes as they are printed.
   defp print_bit_row_header(bit_row, bit_row_index) when bit_row_index == 0 do
     bit_row
     |> Enum.each(fn(_i)->
