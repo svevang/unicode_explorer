@@ -9,7 +9,7 @@ defmodule UnicodeExplorer.Bytes do
   represented as a nested list.
   iex(1)> s = ["aa", "bbb", "cccc", "ddd", "ee", "f"]
   ["aa", "bbb", "cccc", "ddd", "ee", "f"]
-  iex(2)> UnicodeExplorer.byte_matrix(s)
+  iex(2)> UnicodeExplorer.Bytes.byte_matrix(s)
   [
       'abcdef',
       [97, 98, 99, 100, 101, nil],

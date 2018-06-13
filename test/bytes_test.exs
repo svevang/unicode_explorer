@@ -4,7 +4,7 @@ defmodule BytesTest do
 
   describe "byte_matrix/1" do
     s = ["aa", "bbb", "cccc", "ddd", "ee", "f"]
-    assert UnicodeExplorer.byte_matrix(s) == [
+    assert UnicodeExplorer.Bytes.byte_matrix(s) == [
         'abcdef',
         [97, 98, 99, 100, 101, nil],
         [nil, 98, 99, 100, nil, nil],

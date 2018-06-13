@@ -5,19 +5,75 @@ defmodule UnicodeExplorerTest do
 
   describe "print/1" do
     test "prints and list of binaries" do
-      words = ["another", "test", "fine", "watermelon", "josé"]
-      fun = fn() -> UnicodeExplorer.print(Enum.sort(words)) end
-      assert capture_io(fun) =~ "----------------------------------------\n 0 a     0 f     0 j     0 t     0 w    "
-    end
-  end
-
-  describe "longest_bitlength/1" do
-    test "find the max number of bits for a list of binaries" do
-      keys = ["a", "aa", "é"]
-      assert UnicodeExplorer.max_bitlength(keys) == 2 * 8
-
-      keys = ["a", "aa", "aé"]
-      assert UnicodeExplorer.max_bitlength(keys) == 3 * 8
+      words = ["another", "test", "josé"]
+      fun = fn() -> UnicodeExplorer.print(words) end
+      assert capture_io(fun) =~ """
+---------- ---------- ---------- 
+another    test       josé       
+---------- ---------- ---------- 
+ 0       a  0       t  0       j 
+ 1          1          1         
+ 1          1          1         
+ 0          1          0         
+ 0          0          1         
+ 0          1          0         
+ 0          0          1         
+ 1          0          0         
+---------- ---------- ---------- 
+ 0       n  0       e  0       o 
+ 1          1          1         
+ 1          1          1         
+ 0          0          0         
+ 1          0          1         
+ 1          1          1         
+ 1          0          1         
+ 0          1          1         
+---------- ---------- ---------- 
+ 0       o  0       s  0       s 
+ 1          1          1         
+ 1          1          1         
+ 0          1          1         
+ 1          0          0         
+ 1          0          0         
+ 1          1          1         
+ 1          1          1         
+---------- ---------- ---------- 
+ 0       t  0       t  1       é 
+ 1          1          1         
+ 1          1          0         
+ 1          1          0         
+ 0          0          0         
+ 1          1          0         
+ 0          0          1         
+ 0          0          1         
+---------- ---------- ---------- 
+ 0       h             1         
+ 1                     0         
+ 1                     1         
+ 0                     0         
+ 1                     1         
+ 0                     0         
+ 0                     0         
+ 0                     1         
+---------- ---------- ---------- 
+ 0       e                       
+ 1                               
+ 1                               
+ 0                               
+ 0                               
+ 1                               
+ 0                               
+ 1                               
+---------- ---------- ---------- 
+ 0       r                       
+ 1                               
+ 1                               
+ 1                               
+ 0                               
+ 0                               
+ 1                               
+ 0                               
+"""
     end
   end
 
