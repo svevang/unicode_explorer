@@ -69,7 +69,7 @@ defmodule UnicodeExplorer do
   # Util for printing out a **byte** row header
   defp print_byte_row_header(key_list, byte_row_index) when byte_row_index == 0 do
     IO.write "\n"
-    key_list |> Enum.each(fn(k)->
+    key_list |> Enum.each(fn(_)->
       IO.write "---------- "
     end)
 
@@ -83,7 +83,7 @@ defmodule UnicodeExplorer do
     IO.write "\n"
   end
 
-  defp print_byte_row_header(key_list, byte_row_index), do: :noop
+  defp print_byte_row_header(_key_list, _bit_row_index), do: :noop
 
   # Print out a **bit** row header, a dashed line to separate bytes as they are printed.
   defp print_bit_row_header(bit_row, bit_row_index) when bit_row_index == 0 do
@@ -95,13 +95,13 @@ defmodule UnicodeExplorer do
     IO.write("\n")
   end
 
-  defp print_bit_row_header(bit_row, bit_row_index), do: :noop
+  defp print_bit_row_header(_bit_row, _bit_row_index), do: :noop
 
-  defp print_bit_row_footer(key_list, byte_row_index) do
+  defp print_bit_row_footer(_key_list, _byte_row_index) do
     IO.write("\n")
   end
 
-  defp print_bit(bit, bit_row_index, byte_index, key) when bit == nil do
+  defp print_bit(bit, _bit_row_index, _byte_index, _key) when bit == nil do
     # FIXME const padding
     IO.write("           ")
   end
@@ -113,7 +113,7 @@ defmodule UnicodeExplorer do
     IO.write " #{bit}       #{byte_label} "
   end
 
-  defp print_bit(bit, bit_row_index, byte_index, key) do
+  defp print_bit(bit, _bit_row_index, _byte_index, _key) do
     # FIXME const padding
     IO.write " #{bit}         "
   end
