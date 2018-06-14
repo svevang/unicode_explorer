@@ -7,38 +7,7 @@ defmodule UnicodeExplorer do
   Print out the binary representation of a unicode string. Takes in a list of strings and prints out a matrix of binaries.
 
       iex(1)> UnicodeExplorer.print(["az", "bé"])
-
-      ---------- ---------- 
-      az         bé         
-      ---------- ---------- 
-       0       a  0       b 
-       1          1         
-       1          1         
-       0          0         
-       0          0         
-       0          0         
-       0          1         
-       1          0         
-      ---------- ---------- 
-       0       z  1       é 
-       1          1         
-       1          0         
-       1          0         
-       1          0         
-       0          0         
-       1          1         
-       0          1         
-      ---------- ---------- 
-                  1         
-                  0         
-                  1         
-                  0         
-                  1         
-                  0         
-                  0         
-                  1         
       :ok
-      iex(2)> 
 
   """
   def print(key_list) do

@@ -3,7 +3,7 @@
 Try printing out some unicode strings as ones and zeros.
 
 Unicode Explorer is a tool to print out Elixir binaries (aka strings). Each byte is
-printed out as a matrix of bits. If the contains UTF-8, any valid
+printed out as a matrix of bits. If the binary contains UTF-8, any valid
 graphemes are also printed.
 
 

@@ -8,10 +8,7 @@ defmodule UnicodeExplorer.Bytes do
   Given a list of binaries, create a 2D matrix of bytes padded with nils.
   The matrix is represented as a column-major nested list.
 
-      iex> s = ["aa", "bbb", "cccc", "ddd", "ee", "f"]
-      ["aa", "bbb", "cccc", "ddd", "ee", "f"]
-
-      iex> UnicodeExplorer.Bytes.byte_matrix(s)
+      iex> UnicodeExplorer.Bytes.byte_matrix(["aa", "bbb", "cccc", "ddd", "ee", "f"])
       [
           'abcdef',
           [97, 98, 99, 100, 101, nil],
