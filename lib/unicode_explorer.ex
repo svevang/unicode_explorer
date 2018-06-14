@@ -75,16 +75,18 @@ defmodule UnicodeExplorer do
     IO.write("           ")
   end
 
-  defp print_bit(bit, bit_row_index, byte_index, key) when bit_row_index == 0 do
+  defp byte_label(bit_row_index, byte_index, key) when bit_row_index == 0 do
     target_and_trailing_bytes = :binary.part(key, {byte_index, byte_size(key) - byte_index })
     byte_label = if String.valid?(target_and_trailing_bytes), do: String.first(target_and_trailing_bytes), else: " "
-    # FIXME const padding
-    IO.write " #{bit}       #{byte_label} "
   end
 
-  defp print_bit(bit, _bit_row_index, _byte_index, _key) do
+  defp byte_label(bit_row_index, byte_index, key) do
+    " "
+  end
+
+  defp print_bit(bit, bit_row_index, byte_index, key) do
     # FIXME const padding
-    IO.write " #{bit}         "
+    IO.write " #{bit}       #{byte_label(bit_row_index, byte_index, key)} "
   end
 
 end
