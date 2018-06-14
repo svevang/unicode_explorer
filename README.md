@@ -1,8 +1,10 @@
 # UnicodeExplorer
 
-Unicode Explorer is a tool to print out a Elixir binaries. Each byte is
-printed out in binary and if the string is UTF-8, any valid graphemes
-starting at that byte are also printed.
+Try printing out some unicode strings as ones and zeros.
+
+Unicode Explorer is a tool to print out Elixir binaries (aka strings). Each byte is
+printed out as a matrix of bits. If the contains UTF-8, any valid
+graphemes are also printed.
 
 
 ## Installation
